@@ -266,6 +266,7 @@ abstract class Database extends \lithium\data\Source {
 						}
 					}
 				}
+				$strategy($strategy, $model, $tree, '', $context->alias(), $needPks);
 			},
 			'nested' => function($self, $model, $context) {
 				throw new QueryException("This strategy is not yet implemented.");
@@ -1132,7 +1133,11 @@ abstract class Database extends \lithium\data\Source {
 			return;
 		}
 		if ($offset = $context->offset() ?: '') {
+<<<<<<< HEAD
 			$offset = " OFFSET {$offset}";
+=======
+			$offset = ' OFFSET '. $offset;
+>>>>>>> faa8b5c0c0020dc6e6c39e72eef6dbac8a6f1acb
 		}
 		return "LIMIT {$limit}{$offset}";
 	}

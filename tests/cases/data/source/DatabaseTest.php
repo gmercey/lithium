@@ -1281,6 +1281,7 @@ class DatabaseTest extends \lithium\test\Unit {
 		$expected .= 'ON {Gallery}.{id} = {Image}.{gallery_id} LEFT JOIN {mock_image_tag} AS ';
 		$expected .= '{ImageTag} ON {Image}.{id} = {ImageTag}.{image_id} LEFT JOIN {mock_tag} ';
 		$expected .= 'AS {Tag} ON {ImageTag}.{tag_id} = {Tag}.{id};';
+
 		$this->assertEqual($expected, $this->_db->sql);
 
 		$model = $this->_imageTag;
